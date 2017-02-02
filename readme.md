@@ -4,6 +4,7 @@
 ### 큐(Queue)
 
 mainQueue, globalQueue, new DispatchQueue 가 있다.
+
 메인큐, 글로벌큐, 내가만든 새로운큐라고 하며
 
 ~~~~
@@ -21,6 +22,8 @@ DispatchQueue(label: "myQueue")
 
 1. 화면 UI를 변경시키려면 main큐에서 해야 한다.
 2. 큐를 중첩시킬 수 있다.(큐 안의 큐 안의 큐  이런식)
+
+<br><br>
 
 ### 동기/비동기(sync, async)
 
@@ -46,14 +49,22 @@ DispatchQueue(label: "myQueue").async
 	* sync(동기) Queue 안에 main.sync가 있으면 교착상태에 빠져 에러가 난다.
 	* 그럴때는 main.async를 쓰던가 async(비동기) Queue를 먼저 쓰고 main.sync를 쓰면 된다.
 
+<br><br>
+
 ### DispatchQoS(Quality of service)
 
 userInteractive
+
 userInitiated
+
 default
+
 utility
+
 background
+
 unspecified
+
 
 위에 있는것 부터 우선순위가 높다.
 
@@ -105,6 +116,7 @@ queue.async {
 ### DispatchGroup
 
 DispatchGroup()로 그룹을 만들 수 있다.
+
 몇개의 큐를 그룹으로 만들게 되면 그룹에 속해있는 큐들이 끝날때 까지 기다리는 ``wait(timeout: .distantFuture)`` 이나 끝나고 난 후 호출되는 ``notify``를 사용 할 수 있다.
 
 ~~~~~
@@ -190,7 +202,10 @@ workItem wait
 ~~~~
 
 이런식으로 콘솔창에 출력이 된다.
-``perform``을 실행 시킨 다음 WorkItem이 실행되고 ``cancel``로 취소를 시킨다. 그리고 ``wait``로 딜레이를 줄 수 있다.
+
+``perform``을 실행 시킨 다음 WorkItem이 실행되고 ``cancel``로 취소를 시킨다. 
+
+그리고 ``wait``로 딜레이를 줄 수 있다.
 
 
 ### Semaphore
@@ -207,4 +222,5 @@ print("data load after")
 ~~~~
 
 원래 콘솔창에 data load after이 먼저 나와야 하지만 세마포어로 data load after이란 글자가 나중에 나오게 된다.
+
 ``signal``이 나오기 전까지 ``wait``에서 기다리는 중이다.
