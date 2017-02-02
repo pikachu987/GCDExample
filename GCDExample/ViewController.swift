@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let image = UIImage(named: "img.png")
-    let imageUrl = "https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg"
+    let imageUrl = "https://raw.githubusercontent.com/pikachu987/GCDExample/master/image.jpg"
     var time: Double = 0
     var timer: Timer?
     
